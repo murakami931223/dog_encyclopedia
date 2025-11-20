@@ -1,5 +1,6 @@
 @charset "utf-8";
 
+/*共通部分 footerを下部に固定*/
 html,body{
   height: 100%;
 }
@@ -14,6 +15,7 @@ html,body{
   flex-grow: 1;
 }
 
+/*header*/
 .main-header{
   background-color: #AC7F5E;
   height: 96px;
@@ -26,8 +28,39 @@ html,body{
   display: flex;
   width: 90%;
   justify-content: space-between;
+  align-items: center;
 }
 
+/*searchbar*/
+.search-bar{
+  margin: 0 auto;
+}
+
+.search-bar form{
+  display: flex;
+}
+
+.input-area{
+  background-color: #ffff;
+  border: #5D4431 1px solid;
+  border-radius: 5px 0 0 5px;
+  height: 30px;
+  width: 350px;
+}
+
+.search-icon{
+  height: 20px;
+}
+
+.search-btn{
+  background-color: #ffff;
+  border: #5D4431 1px solid;
+  border-radius: 0 5px 5px 0;
+  height: 30px;
+  padding: 2px 5px;
+}
+
+/*navbar*/
 .navbar-container{
   display: flex;
   align-items: center;
@@ -56,6 +89,8 @@ html,body{
   color: #2D1A09;
 }
 
+
+/*footer*/
 .main-footer{
   background-color: #AC7F5E;
   height: 96px;

@@ -5,6 +5,13 @@
     <div class="title">
         <h1>犬リスト</h1>
     </div>
+
+    <ul class="dog-type">
+        <li class="small-dog">
+            <img src="{{ asset('icon-etc/小型犬.png') }}" alt="アイコン">
+        </li>
+    </ul>
+
     @foreach ($dogs as $dog)
     <div class="dog-list">
         <div class="item">

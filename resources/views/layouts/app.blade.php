@@ -33,6 +33,19 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
+                @unless (Route::is('login') || Route::is('register'))
+                <div class="search-bar">
+                    <form action="#" method="GET">
+                    @csrf
+                        <input class="input-area" type="text" name="keyword">
+                        <div class="search-btn">
+                            <img class="search-icon" src="{{ asset('icon-etc/search-icon.png') }}">
+                            <input type="submit" value="検索">
+                        </div>
+                    </form>
+                </div>
+                @endunless
+
                 <div class="navbar-container" id="navbarSupportedContent">
                     <!-- Right Side Of Navbar -->
                     <ul class="nav-list ms-auto">
