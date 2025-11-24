@@ -40,12 +40,49 @@ html,body{
   display: flex;
 }
 
+.category-search{
+  background-color: #5D4431;
+  border-radius: 5px 0 0 5px;
+  display: flex;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  width: 78px;
+}
+
+.select-area {
+  color: #CDCDCD;
+  background-color: transparent;
+  padding-right: 35px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.select-area option{
+  color: #5D4431;
+}
+
+.category-search::after {
+    content: "";
+    position: absolute;
+    right: 3px;
+    top: 55%;
+    transform: translateY(-50%); 
+    pointer-events: none;
+    z-index: 2;
+    width: 12px; 
+    height: 12px; 
+    background-image: url("../icon-etc/triangle.svg");
+    background-size: contain; /* サイズに合わせて画像を伸縮 */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .input-area{
   background-color: #ffff;
   border: #5D4431 1px solid;
-  border-radius: 5px 0 0 5px;
   height: 30px;
-  width: 350px;
+  width: 300px;
 }
 
 .search-icon{

@@ -35,9 +35,22 @@
 
                 @unless (Route::is('login') || Route::is('register'))
                 <div class="search-bar">
-                    <form action="#" method="GET">
+                    <form action="{{ route('list') }}" method="GET">
                     @csrf
-                        <input class="input-area" type="text" name="keyword">
+                    <div class="category-search">
+                        <select class="select-area" name="category_id">
+                            <option value="" {{ $currentCategory == '' ? 'selected' : '' }}>全て</option>
+                            <option style="font-weight: bold;">--犬種--</option>
+                            @foreach ($sizes as $size)
+                            <option value="s_{{ $size->id }}" {{ $currentCategory == 's_' . $size->id ? 'selected' : '' }}>{{ $size->type }}</option>
+                            @endforeach
+                            <option style="font-weight: bold;">--原産国--</option>
+                            @foreach ($origins as $origin)
+                            <option value="o_{{ $origin->id }}" {{ $currentCategory == 'o_' . $origin->id ? 'selected' : '' }}>{{ $origin->country_name }}</option>
+                            @endforeach
+                        </select>
+                    </div>
+                        <input class="input-area" type="text" name="keyword" value="{{ request('keyword', $search['keyword']) }}"  placeholder="キーワードを入力してください">
                         <div class="search-btn">
                             <img class="search-icon" src="{{ asset('icon-etc/search-icon.png') }}">
                             <input type="submit" value="検索">

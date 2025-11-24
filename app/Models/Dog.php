@@ -31,9 +31,37 @@ class Dog extends Model
             return $this->belongsToMany(User::class, 'favorites');
         }
 
-        public function getList() {
-            $dogs = DB::table('dogs') -> get();
+        public static function searchDog($keyword, $category){
+        $searchConditions = [];
 
-            return $dogs;
+        if (!empty($category)) {
+            $parts = explode('_', $category);
+            
+            $prefix = $parts[0] ?? null;
+            $id = $parts[1] ?? null;
+
+            if ($prefix === 's' && $id !== null) {
+                // 犬種が選択された場合
+                $searchConditions['size_id'] = (int)$id;
+                
+            } elseif ($prefix === 'o' && $id !== null) {
+                // 原産国が選択された場合
+                $searchConditions['origin_id'] = (int)$id;
+            }
+        } 
+        
+        $query = self::with(['size', 'origin']);
+
+        if (isset($searchConditions['size_id'])) {
+            $query->where('size_id', $searchConditions['size_id']);
+        } elseif (isset($searchConditions['origin_id'])) {
+            $query->where('origin_id', $searchConditions['origin_id']);
+        }
+
+        if (!empty($keyword)) {
+            $query->where('dog_name', 'like', '%' . $keyword . '%');
+        }
+
+        return $query->paginate(10);
         }
 }

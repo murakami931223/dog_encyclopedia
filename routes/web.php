@@ -17,4 +17,7 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('/', [App\Http\Controllers\DogController::class, 'showList'])->name('top');
+Route::get('/', [App\Http\Controllers\DogController::class, 'showTop'])->name('top');
+
+//検索機能
+Route::get('/list', [App\Http\Controllers\DogController::class, 'showList'])->name('list');
