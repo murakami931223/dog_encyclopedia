@@ -15,6 +15,8 @@
 
     <!-- Scripts -->
     <!-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="{{ asset('js/more_list.js') }}"></script>
 
     <!-- Style --> 
     <link rel="stylesheet" href="https://unpkg.com/destyle.css@3.0.2/destyle.min.css">
