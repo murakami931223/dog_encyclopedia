@@ -1,7 +1,8 @@
 @charset "utf-8";
 
 .route-login .main-content,
-.route-register .main-content{
+.route-register .main-content,
+.route-password-request .main-content{
   display: flex; 
   justify-content: center;
   align-items: center;

@@ -27,7 +27,7 @@
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 
 </head>
-<body class="route-{{ Route::currentRouteName() }}">
+<body class="route-{{ str_replace('.','-', Route::currentRouteName()) }}">
     <div id="app">
         <header class="main-header">
             <div class="header-container">
