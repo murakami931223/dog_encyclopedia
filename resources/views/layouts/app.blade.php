@@ -24,9 +24,10 @@
     <link rel="stylesheet" href="{{ asset('css/top.css') }}">
     <link rel="stylesheet" href="{{ asset('css/article.css') }}">
     <link rel="stylesheet" href="{{ asset('css/list.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
 
 </head>
-<body>
+<body class="route-{{ Route::currentRouteName() }}">
     <div id="app">
         <header class="main-header">
             <div class="header-container">

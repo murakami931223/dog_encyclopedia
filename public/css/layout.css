@@ -3,6 +3,7 @@
 /*共通部分 footerを下部に固定*/
 html,body{
   height: 100%;
+  margin: 0;
 }
 
 #app{
@@ -11,8 +12,15 @@ html,body{
   min-height: 100vh;
 }
 
-main{
+.route-top main,
+.route-list main,
+.route-article main{
   background-color: #FDF6E3;
+}
+
+.route-login main,
+.route-register main{
+  background-color: #fff;
 }
 
 .main-content{
