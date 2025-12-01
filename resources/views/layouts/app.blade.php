@@ -55,10 +55,9 @@
                         </select>
                     </div>
                         <input class="input-area" type="text" name="keyword" value="{{ request('keyword', $currentKeyword) }}"  placeholder="キーワードを入力してください">
-                        <div class="search-btn">
-                            <img class="search-icon" src="{{ asset('icon-etc/search-icon.png') }}">
-                            <input type="submit" value="検索">
-                        </div>
+                        <button class="search-btn" type="submit">
+                            検索
+                        </button>
                     </form>
                 </div>
                 @endunless

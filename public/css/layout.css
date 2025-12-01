@@ -38,6 +38,7 @@ main{
 /*searchbar*/
 .search-bar{
   margin: 0 auto;
+  width: 40%;
 }
 
 .search-bar form{
@@ -51,15 +52,19 @@ main{
   align-items: center;
   text-align: center;
   position: relative;
-  width: 78px;
+  width: 20%;
 }
 
 .select-area {
   color: #CDCDCD;
   background-color: transparent;
-  padding-right: 35px;
   overflow: hidden;
   white-space: nowrap;
+  padding-right: 20px; 
+  width: 100%; 
+  box-sizing: border-box; 
+  height: 100%; 
+  border: none;
 }
 
 .select-area option{
@@ -86,19 +91,33 @@ main{
   background-color: #ffff;
   border: #5D4431 1px solid;
   height: 30px;
-  width: 300px;
+  width: 90%;
 }
 
-.search-icon{
-  height: 20px;
-}
-
-.search-btn{
+.search-btn {
   background-color: #ffff;
   border: #5D4431 1px solid;
   border-radius: 0 5px 5px 0;
   height: 30px;
+  width: 20%;
   padding: 2px 5px;
+  position: relative;
+  display: flex;
+  align-items: center; 
+  justify-content: center; 
+}
+
+
+.search-btn::before {
+    content: ""; 
+    margin-right: 3px;
+    pointer-events: none;
+    width: 15px; 
+    height: 15px; 
+    background-image: url("../icon-etc/search-icon.png");
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 /*navbar*/
