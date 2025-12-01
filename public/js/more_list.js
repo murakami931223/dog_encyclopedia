@@ -2,7 +2,7 @@ $(function() {
   //操作対象のコンテナを$containerとする
   const $container = $("#display-switching");
   //表示/非表示を切り替えるリストの要素
-  const $items = $container.find(".item");
+  const $items = $container.find(".dog-item");
   //表示させる要素の総数をlengthメドッソで取得
   let listLength = $items.length;
 

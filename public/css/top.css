@@ -30,15 +30,21 @@
   text-shadow: 0 2px 2px rgba(0, 0, 0, 0.25);
 }
 
-.wrapper{
+.top-wrapper{
   width: 100vw;
   margin: 0 auto;
 }
 
 /*カテゴリーここから*/
 .category-wrapper{
-  width: 75%;
-  margin: 90px auto;
+  background-color: #FFFFFF;
+}
+
+.category-position{
+  width: 85%;
+  margin: 0 auto;
+  padding-top: 90px;
+  padding-bottom: 90px;
 }
 
 .category-heading{
@@ -46,7 +52,7 @@
   font-size: 2.75rem;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
-  color: #6D4320;
+  color: #6d4321;
 }
 
 .dog-type{
@@ -73,13 +79,10 @@
   margin: 0 auto;
   display: grid;
   gap: 12%;
+  row-gap: 46px;
   grid-template-columns: repeat(auto-fit, minmax(120px,1fr));
   text-align: center;
   justify-content: center;
-}
-
-.origin-item{
-  margin-bottom: 24px;
 }
 
 .origin-search img{
@@ -93,14 +96,10 @@
   font-size: 1.2rem;
 }
 
-/*犬一覧ここから*/
-.list-wrapper{
-  background-color: #FDF6E3;
-  width: 100vw;
-}
+/*犬一覧ここから（list.blade.php兼用）*/
 
-.list-position{
-  width: 75%;
+.list-wrapper{
+  width: 85%;
   margin: 0 auto;
   padding-top: 90px;
   padding-bottom: 90px;
@@ -111,19 +110,19 @@
   font-size: 2.75rem;
   font-family: Arial, Helvetica, sans-serif;
   font-weight: bold;
-  color: #6D4320;
+  color: #6d4321;
 }
 
 .dog-list{
-  width: 80%;
+  width: 100%;
   margin: 0 auto;
   display: grid;
-  gap: 32px;
+  gap: 10%;
   grid-template-columns: repeat(3, minmax(120px,1fr));
-
+  row-gap: 120px;
 }
 
-.item{
+.dog-item{
   width: 100%;
   aspect-ratio: 1;
   border: 1px solid #D9D9D9;
@@ -164,7 +163,7 @@
 
 #more-btn,
 #close-btn{
-  color: #6D4320;
+  color: #6d4321;
   text-align: center;
   cursor: pointer;
 }

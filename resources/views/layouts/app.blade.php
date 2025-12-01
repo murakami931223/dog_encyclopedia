@@ -22,6 +22,8 @@
     <link rel="stylesheet" href="https://unpkg.com/destyle.css@3.0.2/destyle.min.css">
     <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
     <link rel="stylesheet" href="{{ asset('css/top.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/article.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/list.css') }}">
 
 </head>
 <body>
@@ -52,7 +54,7 @@
                             @endforeach
                         </select>
                     </div>
-                        <input class="input-area" type="text" name="keyword" value="{{ request('keyword', $search['keyword']) }}"  placeholder="キーワードを入力してください">
+                        <input class="input-area" type="text" name="keyword" value="{{ request('keyword', $currentKeyword) }}"  placeholder="キーワードを入力してください">
                         <div class="search-btn">
                             <img class="search-icon" src="{{ asset('icon-etc/search-icon.png') }}">
                             <input type="submit" value="検索">

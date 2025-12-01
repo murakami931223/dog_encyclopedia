@@ -11,6 +11,10 @@ html,body{
   min-height: 100vh;
 }
 
+main{
+  background-color: #FDF6E3;
+}
+
 .main-content{
   flex-grow: 1;
 }

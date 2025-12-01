@@ -21,3 +21,6 @@ Route::get('/', [App\Http\Controllers\DogController::class, 'showTop'])->name('t
 
 //検索機能
 Route::get('/list', [App\Http\Controllers\DogController::class, 'showList'])->name('list');
+
+//記事ページ
+Route::get('/article/{id}', [App\Http\Controllers\DogController::class, 'showArticle'])->name('article');
