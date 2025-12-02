@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="login-wrapper">
+<div class="auth-wrapper">
         <div class="card-body">
             <form method="POST" action="{{ route('login') }}">
                 @csrf
@@ -10,9 +10,9 @@
                     <div class="form-row form-margin-bottom">
                         <label for="email" class="form-label">メールアドレス</label>
     
-                            <div class="login-input-area">
-                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
-                            </div>
+                        <div class="login-input-area">
+                            <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                        </div>
                     </div>
                     
                     @error('email')
@@ -20,7 +20,7 @@
                         <div class="form-label"></div>
                         <div class="error-message">
                             <span class="invalid-feedback" role="alert">
-                                <strong>メールアドレスが一致しません。</strong>
+                                <strong>{{ $message }}</strong>
                             </span>
                         </div>
                     </div>
@@ -40,7 +40,7 @@
                         <div class="form-label"></div>
                         <div class="error-message">
                             <span class="invalid-feedback" role="alert">
-                                <strong>パスワードが一致しません。</strong>
+                                <strong>{{ $message }}</strong>
                             </span>
                         </div>
                     </div>
@@ -69,8 +69,8 @@
                 </div>
 
                 <div class="form-row form-flex-end">
-                    <div class="login-btn-area">
-                        <button type="submit" class="login-btn">
+                    <div class="btn-area">
+                        <button type="submit" class="login-btn auth-btn-primary">
                             ログイン
                         </button>
                     </div>

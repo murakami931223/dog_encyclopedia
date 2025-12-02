@@ -25,6 +25,8 @@
     <link rel="stylesheet" href="{{ asset('css/article.css') }}">
     <link rel="stylesheet" href="{{ asset('css/list.css') }}">
     <link rel="stylesheet" href="{{ asset('css/login.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/register.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/sendEmail.css') }}">
 
 </head>
 <body class="route-{{ str_replace('.','-', Route::currentRouteName()) }}">
@@ -38,7 +40,7 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
 
-                @unless (Route::is('login') || Route::is('register'))
+                @unless (Route::is('login') || Route::is('register') || Route::is('password.request'))
                 <div class="search-bar">
                     <form action="{{ route('list') }}" method="GET">
                     @csrf
@@ -81,22 +83,24 @@
                             @endif
                         @else
                             <li class="nav-item">
-                                <a id="navbarDropdown" class="nav-link" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
-                                </a>
-
                                 <div class="menu menu-end" aria-labelledby="navbarDropdown">
                                     <a class="drop-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
                                         document.getElementById('logout-form').submit();">
                                         ログアウト
                                     </a>
-
                                     <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
                                         @csrf
                                     </form>
                                 </div>
                             </li>
+
+                            <li class="nav-item">
+                                <a id="navbarDropdown" class="myPage-link" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                    {{ Auth::user()->name }}
+                                </a>
+                            </li>
+
                         @endguest
                     </ul>
                 </div>

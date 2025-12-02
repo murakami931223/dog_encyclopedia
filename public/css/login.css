@@ -8,7 +8,7 @@
   align-items: center;
 }
 
-.login-wrapper{
+.auth-wrapper{
   max-width: 45%; 
   width: 100%;
 }
@@ -18,11 +18,15 @@
   align-items: center;
 }
 
-.mail-container{
+.mail-container,
+.name-container,
+.route-register .password-container{
   margin-bottom: 60px;
 }
 
-.password-container{
+.password-container,
+.password-confirm-container,
+.route-password-request .mail-container{
   margin-bottom: 18px;
 }
 
@@ -36,14 +40,16 @@
   width: 30%;
 }
 
-.login-input-area{
+.login-input-area,
+.register-input-area{
   border: 1px solid #000;
   border-radius: 5px;
   width: 70%;
 }
 
 input[type="email"],
-input[type="password"]{
+input[type="password"],
+.register-input-area input[type="text"]{
   width: 100%;
   height: 40px;
   padding: 0 0.25rem;
@@ -88,15 +94,18 @@ input[type="password"]{
   justify-content: flex-end;
 }
 
-.login-btn-area{
+.btn-area{
   margin-top: 20px;
 }
 
-.login-btn{
+.auth-btn-primary{
   padding:10px;
+  border-radius: 5px;
+  box-shadow: -3px 3px 4px -2px rgba(0, 0, 0, 0.5);
+}
+
+.login-btn{
   background-color: #7AB360;
   border: 1px solid #679950;
-  border-radius: 5px;
   color: #fff;
-  box-shadow: -3px 3px 4px -2px rgba(0, 0, 0, 0.5);
 }
