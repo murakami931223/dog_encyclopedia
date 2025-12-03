@@ -23,6 +23,19 @@
                         </tr>
                     </tbody>
                 </table>
+                @auth
+                <div class="article-favorite-box">
+                    @if (!Auth::user() -> is_favorite($dog -> id))
+                        <span class="favorite-judge">
+                            <i class="far fa-heart favorite-toggle" data-dog-id="{{ $dog->id }}"></i>
+                        </span>
+                    @else
+                        <span class="favorite-judge">
+                            <i class="fas fa-heart favorite-toggle liked" data-dog-id="{{ $dog->id }}"></i>
+                        </span>
+                    @endif
+                </div>
+                @endauth
             </div>
         </div>
         <div class="description-area">

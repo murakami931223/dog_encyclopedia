@@ -42,8 +42,16 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function favorites()
+    public function favorites() {
+        return $this->hasMany(Favorite::class);
+    }
+
+    public function favorite_dogs()
     {
-        return $this->belongsToMany(Dog::class, 'favorites');
+        return $this->belongsToMany(Dog::class, 'favorites', 'user_id', 'dog_id');
+    }
+
+    public function is_favorite($dogId) {
+        return $this -> favorites() -> where('dog_id', $dogId) -> exists();
     }
 }

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Dog;
 use App\Models\Size;
 use App\Models\Origin;
+use App\Models\User;
 
 class DogController extends Controller
 {

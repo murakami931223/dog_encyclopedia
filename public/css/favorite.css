@@ -1,0 +1,16 @@
+@charset "utf-8";
+
+.article-favorite-box{
+  display: flex;
+  justify-content: end;
+  margin-top: 0.75rem;
+}
+
+.fa-heart{
+  width: var(--fa-width, 2.25rem);
+  font-size: 2rem;
+}
+
+.liked{
+  color: #ff4500;
+}

@@ -24,3 +24,9 @@ Route::get('/list', [App\Http\Controllers\DogController::class, 'showList'])->na
 
 //記事ページ
 Route::get('/article/{id}', [App\Http\Controllers\DogController::class, 'showArticle'])->name('article');
+
+//要ログインの処理
+Route::group(['middleware' => ['auth']], function () {
+    Route::post('/favorite', [App\Http\Controllers\FavoriteController::class, 'favoriteJudge'])->name('favorite');
+    Route::get('/mypage', [App\Http\Controllers\UserController::class, 'showMypage'])->name('mypage');
+});
