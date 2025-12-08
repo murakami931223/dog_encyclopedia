@@ -27,6 +27,6 @@ Route::get('/article/{id}', [App\Http\Controllers\DogController::class, 'showArt
 
 //要ログインの処理
 Route::group(['middleware' => ['auth']], function () {
-    Route::post('/favorite', [App\Http\Controllers\FavoriteController::class, 'favoriteJudge'])->name('favorite');
-    Route::get('/mypage', [App\Http\Controllers\UserController::class, 'showMypage'])->name('mypage');
+  Route::post('/favorite', [App\Http\Controllers\FavoriteController::class, 'favoriteJudge'])->name('favorite');
+  Route::get('/mypage', [App\Http\Controllers\UserController::class, 'showMypage'])->name('mypage');
 });

@@ -14,12 +14,6 @@
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-    <!-- Scripts -->
-    <!-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) -->
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
-    <script src="{{ asset('js/more_list.js') }}"></script>
-    <script src="{{ asset('js/favorite.js') }}"></script>
-
     <!-- Style --> 
     <link rel="stylesheet" href="https://unpkg.com/destyle.css@3.0.2/destyle.min.css">
     <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
@@ -120,5 +114,14 @@
             </div>
         </footer>
     </div>
+    <!-- Scripts -->
+    <!-- @vite(['resources/sass/app.scss', 'resources/js/app.js']) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script>
+        // Laravelが自動的にサブディレクトリのパスを含めたURLを生成してくれる
+        const APP_BASE_URL = '{{ asset('/') }}'; 
+    </script>
+    <script src="{{ asset('js/more_list.js') }}"></script>
+    <script src="{{ asset('js/favorite.js') }}"></script>
 </body>
 </html>

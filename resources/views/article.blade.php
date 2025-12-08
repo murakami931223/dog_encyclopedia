@@ -31,7 +31,7 @@
                         </span>
                     @else
                         <span class="favorite-judge">
-                            <i class="fas fa-heart favorite-toggle liked" data-dog-id="{{ $dog->id }}"></i>
+                            <i class="fas fa-heart favorite-toggle" data-dog-id="{{ $dog->id }}"></i>
                         </span>
                     @endif
                 </div>

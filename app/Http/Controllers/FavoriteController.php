@@ -12,11 +12,7 @@ class FavoriteController extends Controller
         $dogId = $request->dog_id;
         $user = Auth::user();
 
-        if (!$user -> is_favorite($dogId)) {
-            $user -> favorite_dogs() -> attach($dogId);
-        }else{
-            $user -> favorite_dogs() -> detach($dogId);
-        }
+        $user->favorite_dogs()->toggle($dogId);
 
         return  response()->json();
     }

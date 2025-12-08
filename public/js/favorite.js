@@ -8,12 +8,14 @@ $(function(){
 
   let favorite = $('.favorite-toggle'); //iタグを取得し代入
   let favoriteDogId;
-  favorite.on('click',function(){
+  favorite.on('click',function(e){
+    e.stopImmediatePropagation();
+
     let $this = $(this);
     favoriteDogId = $this.data('dog-id');
     //ajax処理
     $.ajax({
-        url: '/favorite',
+        url: APP_BASE_URL + 'favorite',
         method: 'post',
         dataType: 'json',
         data: {
@@ -22,7 +24,7 @@ $(function(){
     })
     //通信成功したときの処理
     .done(function(data){
-      $this.toggleClass('far fas liked');
+      $this.toggleClass('far fas');
     })
 
     //通信失敗したときの処理
