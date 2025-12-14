@@ -1,0 +1,249 @@
+@charset "utf-8";
+
+@media (max-width: 798px) {
+
+  /*共通部分*/
+  .header-logo{
+    font-size: 1.25rem;
+  }
+
+  .input-area{
+    border: #5D4431 0.5px solid;
+    width: 100%;
+  }
+
+  .select-area {
+    padding-right: 0; 
+    font-size: 0;
+  }
+
+  .select-area option{
+    font-size: 1rem;
+  }
+
+  .category-search::after {
+      right: 25%;
+  }
+
+  .search-bar{
+    width: 50%;
+  }
+
+  .search-btn{
+    font-size: 0;
+    border: #5D4431 0.5px solid;
+  }
+
+  .input-area::placeholder{
+    font-size: 0.75rem;
+  }
+
+  .nav-item{
+    padding-left: 0;
+  }
+
+  .nav-list{
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .nav-link{
+    font-size: 0.75rem;
+  }
+
+  .logout-nav-item{
+    order: 0;
+    font-size: 0.75rem;
+  }
+
+  .user-nav-item{
+    order: -1;
+  }
+
+  .myPage-link{
+    padding: 2px 8px;
+    font-size: 0.75rem;
+  }
+
+  /*ログイン画面・新規登録画面*/
+  .auth-wrapper{
+    max-width: 60%; 
+  }
+
+  .support-area{
+    width: 100%;
+    display: block;
+    align-items: center;
+  }
+
+  .mail-container,
+  .name-container,
+  .route-register .password-container{
+    margin-bottom: 30px;
+  }
+
+  .password-container,
+  .password-confirm-container,
+  .route-password-request .mail-container{
+    margin-bottom: 5px;
+  }
+
+  .form-row{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .form-label,
+  .login-input-area,
+  .register-input-area{
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .form-check{
+    margin-right: 0;
+    margin-bottom: 12px;
+  }
+
+  .forget-password{
+    font-size: 0.8rem;
+  }
+
+  .error-message{
+    width: 100%;
+  }
+
+  .form-flex-end{
+    align-items: flex-end;
+  }
+
+  input[type="email"],
+  input[type="password"],
+  .register-input-area input[type="text"]{
+    height: 30px;
+  }
+
+  .footer-p{
+    margin-bottom: 0.5rem;
+    font-size: 0.6rem;
+  }
+
+  /*トップ画面*/
+
+  .title-area {
+    background-size: 100%;
+    background-blend-mode: multiply;
+    height: 50vh;
+  }
+
+  .main-title{
+    font-size: 2.5rem;
+    letter-spacing: 0.5rem;
+  }
+
+  .sub-title{
+    margin-top: 3px;
+    font-size: 1rem;
+  }
+
+  .category-position{
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .category-heading{
+    margin-bottom: 34px;
+    font-size: 1.75rem;
+  }
+
+  .dog-type{
+    gap: 5%;
+    grid-template-columns: repeat(auto-fit, minmax(auto, 70px));
+  }
+
+  .category-hr{
+    margin: 34px auto;
+    border-top: 3px dashed #AC7F5E;
+  }
+
+  .dog-origin{
+    gap: 7%;
+    row-gap: 26px;
+    grid-template-columns: repeat(auto-fit, minmax(auto, 65px));
+  }
+
+  .origin-text{
+    margin-top: 8px;
+    font-weight: normal;
+    font-size: 0.8rem;
+  }
+
+  .list-wrapper{
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  .list-heading{
+    margin-bottom: 34px;
+    font-size: 1.75rem;
+  }
+
+  .dog-list{
+    gap: 5%;
+    grid-template-columns: repeat(auto-fit, minmax(120px,1fr));
+    row-gap: 34px;
+  }
+
+  .dog-article p{
+    font-size: 0.8rem;
+  }
+
+  #more-btn,
+  #close-btn{
+    font-size: 0.75rem;
+  }
+
+  /*記事ページ*/
+  .dog-name-title{
+    font-size: 2.75rem;
+    margin-bottom: 24px;
+    border-bottom: 3px solid #AC7F5E;
+  }
+
+  .flex-content{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .img-area{
+    width: 100%;
+  }
+
+  .img-area img{
+    width: 100%;
+  }
+
+  .feature-area{
+    margin-top: 24px;
+    width: 100%;
+  }
+
+  .feature-tb tbody{
+    font-size: 1.75rem;
+  }
+
+  .feature-tb th,
+  .feature-tb td {
+    border-bottom: 3px solid #AC7F5E;
+  }
+
+  .description-area{
+    padding-top: 42px;
+    padding-bottom: 120px;
+    font-size: 1.25rem;
+  }
+
+}

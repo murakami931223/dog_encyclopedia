@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{ asset('css/register.css') }}">
     <link rel="stylesheet" href="{{ asset('css/sendEmail.css') }}">
     <link rel="stylesheet" href="{{ asset('css/favorite.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
 
 </head>
 <body class="route-{{ str_replace('.','-', Route::currentRouteName()) }}">
@@ -79,7 +80,7 @@
                                 </li>
                             @endif
                         @else
-                            <li class="nav-item">
+                            <li class="nav-item logout-nav-item">
                                 <div class="menu menu-end" aria-labelledby="navbarDropdown">
                                     <a class="drop-item" href="{{ route('logout') }}"
                                         onclick="event.preventDefault();
@@ -92,7 +93,7 @@
                                 </div>
                             </li>
 
-                            <li class="nav-item">
+                            <li class="nav-item user-nav-item">
                                 <a id="navbarDropdown" class="myPage-link" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
@@ -110,7 +111,7 @@
 
         <footer class="main-footer">
             <div class="footer-p">
-                <p>趣味サイト</p>
+                <p>©dog_encyclopedia Inc</p>
             </div>
         </footer>
     </div>

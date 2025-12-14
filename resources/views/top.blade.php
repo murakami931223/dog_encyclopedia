@@ -4,7 +4,7 @@
     <!-- トップ画像 -->
     <div class="title-area">
         <p class="main-title">犬図鑑</p>
-        <p class="sub-title">趣味制作サイト</p>
+        <p class="sub-title">犬についての学習サイト</p>
     </div>
     <div class="top-wrapper">
         <!-- 犬種カテゴリー -->
