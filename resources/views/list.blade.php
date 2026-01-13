@@ -20,6 +20,19 @@
         <div class="dog-list">
             @foreach ($dogs as $dog)
             <div class="dog-item">
+                @auth
+                    <div class="usually-article-favorite-box">
+                        @if (!Auth::user() -> is_favorite($dog -> id))
+                            <span class="favorite-judge">
+                                <i class="far fa-heart favorite-toggle" data-dog-id="{{ $dog->id }}"></i>
+                            </span>
+                        @else
+                            <span class="favorite-judge">
+                                <i class="fas fa-heart favorite-toggle" data-dog-id="{{ $dog->id }}"></i>
+                            </span>
+                        @endif
+                    </div>
+                @endauth
                 <a class="dog-article" href="{{ route('article', ['id' => $dog -> id]) }}">
                     <img src="{{ asset($dog->dog_img) }}">
                     <p class="dog-name">{{ $dog->dog_name }}</p>

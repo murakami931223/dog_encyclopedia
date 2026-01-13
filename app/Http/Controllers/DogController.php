@@ -58,6 +58,9 @@ class DogController extends Controller
     public function showArticle($id) {
         $dog = Dog::with(['size', 'origin'])->findOrFail($id);
 
+        $dog -> view_count += 1;
+        $dog -> save();
+
         return view('article', compact('dog'));
     }
 }
