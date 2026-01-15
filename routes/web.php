@@ -30,3 +30,11 @@ Route::group(['middleware' => ['auth']], function () {
   Route::post('/favorite', [App\Http\Controllers\FavoriteController::class, 'favoriteJudge'])->name('favorite');
   Route::get('/mypage', [App\Http\Controllers\UserController::class, 'showMypage'])->name('mypage');
 });
+
+//管理者権限
+Route::middleware(['auth', 'admin'])->prefix('admin')->name('admin.')->group(function (){
+  Route::get('/dogs/create', [App\Http\Controllers\Admin\DogController::class, 'showCreate'])->name('create'); //新規追加画面表示
+  Route::post('/dogs', [App\Http\Controllers\Admin\DogController::class, 'store'])->name('store'); //登録処理
+  Route::get('/article/{id}/edit', [App\Http\Controllers\Admin\DogController::class, 'showEdit'])->name('edit'); //編集画面表示
+  Route::put('/article/{id}', [App\Http\Controllers\Admin\DogController::class, 'update'])->name('update'); //更新処理
+});

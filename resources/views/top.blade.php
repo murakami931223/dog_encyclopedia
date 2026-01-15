@@ -78,7 +78,12 @@
         </div>
 
         <div id="display-switching" class="list-wrapper">
-            <p class="list-heading">一覧</p>
+            <div class=create-flex>
+                <p class="list-heading">一覧</p>
+                    @if(auth()->user()?->is_admin)
+                        <a class="create-link" href="{{ route('admin.create') }}">記事を追加する</a>
+                    @endif
+            </div>
             <div class="dog-list">
                 @foreach ($dogs as $dog)
                 <div class="dog-item">

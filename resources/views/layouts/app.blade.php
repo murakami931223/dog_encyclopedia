@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="{{ asset('css/sendEmail.css') }}">
     <link rel="stylesheet" href="{{ asset('css/favorite.css') }}">
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/admin/create.css') }}">
 
 </head>
 <body class="route-{{ str_replace('.','-', Route::currentRouteName()) }}">
@@ -124,5 +125,6 @@
     </script>
     <script src="{{ asset('js/more_list.js') }}"></script>
     <script src="{{ asset('js/favorite.js') }}"></script>
+    <script src="{{ asset('js/popup.js') }}"></script>
 </body>
 </html>

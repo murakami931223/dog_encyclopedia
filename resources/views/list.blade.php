@@ -14,6 +14,9 @@
             @endif
             の犬
         </p>
+        @if(auth()->user()?->is_admin)
+            <a class="create-link" href="{{ route('admin.create') }}">記事を追加する</a>
+        @endif
     </div>
     @endif
     <div class="padding-box">

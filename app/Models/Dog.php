@@ -31,6 +31,7 @@ class Dog extends Model
             return $this->hasMany(Favorite::class);
         }
 
+        //検索機能
         public static function searchDog($keyword, $category){
         $searchConditions = [];
 
@@ -63,5 +64,32 @@ class Dog extends Model
         }
 
         return $query->paginate(10);
+        }
+
+        //登録処理
+        public function registerDog($request) {
+            $dog = new Dog();
+            $dog -> dog_name = $request -> dogName;
+            $dog -> size_id = $request -> sizeId;
+            $dog -> origin_id = $request -> originId;
+            $dog -> description = $request -> description;
+            //ファイルアップロード処理
+            $this -> upLoadFile($request, $dog);
+
+            $dog -> save();
+        }
+
+        //ファイルアップロード処理
+        private function upLoadFile($request, $dog){
+            $file = $request -> file('dogImg');
+            if(!empty($file)){
+                if ($file -> isValid()){
+                    //ファイルが有効であれば保存処理を行う
+                    $filename = $file -> getClientOriginalName();
+                    $path = $file -> storeAs('public/img', $filename);
+
+                    $dog -> dog_img = 'storage/img/'.$filename;
+                }
+            }
         }
 }
