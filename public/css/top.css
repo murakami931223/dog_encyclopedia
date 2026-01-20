@@ -118,12 +118,25 @@
   color: #6d4321;
 }
 
-.create-link{
+.admin-link{
+  display: inline-block;
+  white-space: nowrap;
+  width: auto;
   margin-left: 24px;
   background-color: #6d4321;
   color: #D9D9D9;
-  padding: 5px 12px;
+  padding: 8px 12px;
   border-radius: 5px;
+}
+
+.delete-btn-primary{
+  background-color: #ff7f50;
+  color: #fffafa;
+}
+
+.list-delete-btn{
+  padding: 5px 8px;
+  border-radius: 3px;
 }
 
 .dog-list{
@@ -133,6 +146,18 @@
   gap: 10%;
   grid-template-columns: repeat(3, minmax(120px,1fr));
   row-gap: 120px;
+}
+
+.flex-column{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.delete-area{
+  width: 100%;
+  text-align: center;
 }
 
 .dog-item{

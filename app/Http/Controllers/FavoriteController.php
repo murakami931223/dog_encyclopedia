@@ -12,8 +12,14 @@ class FavoriteController extends Controller
         $dogId = $request->dog_id;
         $user = Auth::user();
 
-        $user->favorite_dogs()->toggle($dogId);
+        $result = $user->favorite_dogs()->toggle($dogId);
 
-        return  response()->json();
+        $isDeleted = count($result['detached']) > 0;
+
+        $isMypage = str_contains(url()->previous(), 'mypage');
+
+        return  response()->json([
+            'deleteOK' => ($isDeleted && $isMypage)
+        ]);
     }
 }

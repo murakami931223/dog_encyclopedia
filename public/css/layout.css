@@ -14,7 +14,8 @@ html,body{
 
 .route-top main,
 .route-list main,
-.route-article main{
+.route-article main,
+.route-mypage main{
   background-color: #FDF6E3;
 }
 

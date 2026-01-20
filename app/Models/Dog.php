@@ -63,24 +63,37 @@ class Dog extends Model
             $query->where('dog_name', 'like', '%' . $keyword . '%');
         }
 
-        return $query->paginate(10);
+        return $query;
         }
 
         //登録処理
-        public function registerDog($request) {
-            $dog = new Dog();
+        public static function registerDog($request) {
+            $dog = new self();
             $dog -> dog_name = $request -> dogName;
             $dog -> size_id = $request -> sizeId;
             $dog -> origin_id = $request -> originId;
             $dog -> description = $request -> description;
             //ファイルアップロード処理
-            $this -> upLoadFile($request, $dog);
+            self::upLoadFile($request, $dog);
+
+            $dog -> save();
+        }
+
+        //更新処理
+        public static function editDog($request,$id) {
+            $dog = self::findOrFail($id);
+            $dog -> dog_name = $request -> dogName;
+            $dog -> size_id = $request -> sizeId;
+            $dog -> origin_id = $request -> originId;
+            $dog -> description = $request -> description;
+            //ファイルアップロード処理
+            self::upLoadFile($request, $dog);
 
             $dog -> save();
         }
 
         //ファイルアップロード処理
-        private function upLoadFile($request, $dog){
+        private static function upLoadFile($request, $dog){
             $file = $request -> file('dogImg');
             if(!empty($file)){
                 if ($file -> isValid()){
@@ -90,6 +103,29 @@ class Dog extends Model
 
                     $dog -> dog_img = 'storage/img/'.$filename;
                 }
+            }
+        }
+
+        //削除処理
+        public static function deleteDog($id) {
+            $dog = self::findOrFail($id);
+            return $dog->delete();
+        }
+
+        //ソート機能
+        public function scopeWithSort($query, $sortType)
+        {
+            switch ($sortType) {
+                case 'size-asc':
+                    return $query->orderBy('size_id', 'asc');
+                case 'size-desc':
+                    return $query->orderBy('size_id', 'desc');
+                case 'viewCounts-desc':
+                    return $query->orderBy('view_count', 'desc');
+                case 'name-asc':
+                    return $query->orderBy('dog_name', 'asc');
+                default:
+                    return $query->orderBy('id','asc');
             }
         }
 }

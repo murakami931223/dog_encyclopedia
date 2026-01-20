@@ -11,9 +11,18 @@ use App\Models\User;
 class DogController extends Controller
 {
     //トップページ表示処理
-    public function showTop() {
+    public function showTop(Request $request) {
 
-        $dogs = Dog::with(['size', 'origin'])->get();
+        $dogs = Dog::with(['size', 'origin'])
+                    ->withSort($request->get('sort'))
+                    ->get();
+
+        //ソートしたときの動作
+        //_list_items.blade.phpだけ読み込ませる
+        if ($request->ajax()) {
+            return view('_list_items', compact('dogs'))->render();
+        }
+
         return view('top', compact('dogs'));
     }
 
@@ -38,7 +47,9 @@ class DogController extends Controller
             }
         }
         
-        $dogs = Dog::searchDog($keyword, $category);
+        $dogs = Dog::searchDog($keyword, $category)
+                    ->withSort($request->get('sort'))
+                    ->paginate(10);
         
         // セッションに検索条件を保存
         $request->session()->put('search', [
@@ -46,11 +57,12 @@ class DogController extends Controller
             'category_id' => $category,
         ]);
         
-        //     dd([
-        //     'Keyword from Form' => $keyword,
-        //     'Category from Form' => $category,
-        //     'Old Session Data' => $request->session()->get('search'),
-        // ]);
+        //ソートしたときの動作
+        //_list_items.blade.phpだけ読み込ませる
+        if ($request->ajax()) {
+            return view('_list_items', compact('dogs'))->render();
+        }
+
         return view('list', compact('dogs','keyword','search_category_name'));
     }
 

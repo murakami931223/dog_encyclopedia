@@ -25,6 +25,7 @@
     <link rel="stylesheet" href="{{ asset('css/sendEmail.css') }}">
     <link rel="stylesheet" href="{{ asset('css/favorite.css') }}">
     <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/mypage.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin/create.css') }}">
 
 </head>
@@ -95,7 +96,7 @@
                             </li>
 
                             <li class="nav-item user-nav-item">
-                                <a id="navbarDropdown" class="myPage-link" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                <a id="navbarDropdown" class="myPage-link" href="{{ route('mypage') }}" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
                                     {{ Auth::user()->name }}
                                 </a>
                             </li>
@@ -124,7 +125,7 @@
         const APP_BASE_URL = '{{ asset('/') }}'; 
     </script>
     <script src="{{ asset('js/more_list.js') }}"></script>
-    <script src="{{ asset('js/favorite.js') }}"></script>
+    <script src="{{ asset('js/async.js') }}"></script>
     <script src="{{ asset('js/popup.js') }}"></script>
 </body>
 </html>

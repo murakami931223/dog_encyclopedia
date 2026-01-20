@@ -7,6 +7,13 @@
         <p class="sub-title">犬についての学習サイト</p>
     </div>
     <div class="top-wrapper">
+        <div id="flash-message-container">
+            @if (session('success'))
+            <div id="flash-message" class="alert-success">
+                {{ session('success') }}
+            </div>
+            @endif
+        </div>
         <!-- 犬種カテゴリー -->
         <div class="category-wrapper">
             <div class="category-position">
@@ -80,32 +87,22 @@
         <div id="display-switching" class="list-wrapper">
             <div class=create-flex>
                 <p class="list-heading">一覧</p>
+
+                <div class="sort-area">
+                    <select id="dog-sort-select">
+                        <option value="default">並び替え</option>
+                        <option value="size-asc">サイズが小さい順</option>
+                        <option value="size-desc">サイズが大きい順</option>
+                        <option value="name-asc">名前（あいうえお順）</option>
+                        <option value="viewCounts-desc">閲覧数が多い順</option>
+                    </select>
+                </div>
                     @if(auth()->user()?->is_admin)
-                        <a class="create-link" href="{{ route('admin.create') }}">記事を追加する</a>
+                        <a class="create-link admin-link" href="{{ route('admin.create') }}">記事を追加する</a>
                     @endif
             </div>
-            <div class="dog-list">
-                @foreach ($dogs as $dog)
-                <div class="dog-item">
-                    @auth
-                    <div class="usually-article-favorite-box">
-                        @if (!Auth::user() -> is_favorite($dog -> id))
-                            <span class="favorite-judge">
-                                <i class="far fa-heart favorite-toggle" data-dog-id="{{ $dog->id }}"></i>
-                            </span>
-                        @else
-                            <span class="favorite-judge">
-                                <i class="fas fa-heart favorite-toggle" data-dog-id="{{ $dog->id }}"></i>
-                            </span>
-                        @endif
-                    </div>
-                    @endauth
-                    <a class="dog-article" href="{{ route('article', ['id' => $dog -> id]) }}">
-                        <img src="{{ asset($dog->dog_img) }}">
-                        <p class="dog-name">{{ $dog->dog_name }}</p>
-                    </a>
-                </div>
-                @endforeach
+            <div class="dog-list" id="dog-container">
+                @include('_list_items', ['dogs' => $dogs])
             </div>
             <div class="btn-area">
                 <p id="more-btn">もっと見る...</p>
