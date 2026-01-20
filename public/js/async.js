@@ -1,5 +1,3 @@
-const { method } = require("lodash");
-
 $(function(){
 
   $.ajaxSetup({
@@ -117,6 +115,7 @@ $(function(){
   //ソート処理
   function dogSort() {
     $(document).on('change', '#dog-sort-select', function() {
+      console.log('動いてる？');
       let sortVal = $(this).val();
 
       //現在のURLを取得し、sortパラメータを更新する
@@ -131,9 +130,32 @@ $(function(){
         $('#dog-container').html(html);
 
         window.history.pushState({}, '', url);
+
+        //「もっと見る」を再適応
+        if (typeof initializeMoreList === 'function') {
+          initializeMoreList();
+        }
       })
       .fail(function(jqXHR, textStatus, errorThrown) {
         console.error('ソート失敗:', textStatus, errorThrown);
+      });
+    });
+  }
+
+  //ページネーションの非同期処理
+  function paginationAjax() {
+    $(document).on('click', '.pagination a', function(e) {
+      e.preventDefault();
+
+      let url = $(this).attr('href');
+
+      $.ajax({
+        url: url,
+        method: 'get'
+      })
+      .done(function(html) {
+        $('#dog-container').html(html);
+        window.history.pushState({}, '', url);
       });
     });
   }
@@ -142,5 +164,6 @@ $(function(){
   addFavorite();
   deleteClick();
   empowerment();
-  dogSort()
+  dogSort();
+  paginationAjax();
 });

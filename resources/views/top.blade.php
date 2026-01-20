@@ -93,7 +93,6 @@
                         <option value="default">並び替え</option>
                         <option value="size-asc">サイズが小さい順</option>
                         <option value="size-desc">サイズが大きい順</option>
-                        <option value="name-asc">名前（あいうえお順）</option>
                         <option value="viewCounts-desc">閲覧数が多い順</option>
                     </select>
                 </div>
@@ -101,7 +100,7 @@
                         <a class="create-link admin-link" href="{{ route('admin.create') }}">記事を追加する</a>
                     @endif
             </div>
-            <div class="dog-list" id="dog-container">
+            <div id="dog-container">
                 @include('_list_items', ['dogs' => $dogs])
             </div>
             <div class="btn-area">

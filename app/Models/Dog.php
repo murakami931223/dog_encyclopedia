@@ -122,8 +122,6 @@ class Dog extends Model
                     return $query->orderBy('size_id', 'desc');
                 case 'viewCounts-desc':
                     return $query->orderBy('view_count', 'desc');
-                case 'name-asc':
-                    return $query->orderBy('dog_name', 'asc');
                 default:
                     return $query->orderBy('id','asc');
             }

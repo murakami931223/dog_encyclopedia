@@ -49,7 +49,8 @@ class DogController extends Controller
         
         $dogs = Dog::searchDog($keyword, $category)
                     ->withSort($request->get('sort'))
-                    ->paginate(10);
+                    ->paginate(10)
+                    ->withQueryString();
         
         // セッションに検索条件を保存
         $request->session()->put('search', [

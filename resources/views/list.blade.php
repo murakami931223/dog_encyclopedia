@@ -24,9 +24,6 @@
         <div class="sort-area">
             <select id="dog-sort-select">
                 <option value="default">並び替え</option>
-                <option value="size-asc">サイズが小さい順</option>
-                <option value="size-desc">サイズが大きい順</option>
-                <option value="name-asc">名前（あいうえお順）</option>
                 <option value="viewCounts-desc">閲覧数が多い順</option>
             </select>
         </div>
@@ -36,10 +33,9 @@
     </div>
     @endif
     <div class="padding-box">
-        <div class="dog-list" id="dog-container">
+        <div id="dog-container">
             @include('_list_items', ['dogs' => $dogs])
         </div>
-        {{ $dogs->appends(request()->except('page'))->links('vendor.pagination.tailwind_custom') }}
     </div>
     </div>
 @endsection
