@@ -125,9 +125,10 @@ $(function(){
       $.ajax({
         url: url.href,
         method: 'get', //ソートはデータの取得なのでGET
+        dataType: 'json'
       })
-      .done(function(html) {
-        $('#dog-container').html(html);
+      .done(function(data) {
+        $('#dog-container').html(data.html);
 
         window.history.pushState({}, '', url);
 
@@ -138,6 +139,50 @@ $(function(){
       })
       .fail(function(jqXHR, textStatus, errorThrown) {
         console.error('ソート失敗:', textStatus, errorThrown);
+      });
+    });
+  }
+
+  //リストページでの検索非同期処理
+  function searchAjax(){
+    $(document).on('submit', '#search-form', function(e) {
+      //リストページだけ非同期処理にしたいので、
+      // その他のページの場合はAjax実行せずに終了させる。
+      if (!window.location.pathname.includes('/list')) {
+        return;
+      }
+      
+      e.preventDefault(); //通常のページ遷移を止める
+  
+      const $form = $(this);
+      const url = $form.attr('action') || window.location.href;
+      const formData = $form.serialize();
+  
+      $.ajax({
+        url: url,
+        data: formData,
+        dataType: 'json'
+      })
+      .done(function(data) {
+        //まずは検索結果のリストを上書き
+        $('#dog-container').html(data.html);
+  
+        //「○○の犬」のところを変更
+        let searchText = "";
+        if (data.keyword && data.search_category_name) {
+          searchText = data.keyword + "、" + data.search_category_name;
+        } else {
+          searchText = data.keyword || data.search_category_name || "";
+        }
+        $('#search-result-text').text(searchText + " の犬");
+  
+        //URLを更新
+        const newUrl = url + (url.includes('?') ? '&' : '?') + formData;
+        window.history.pushState({}, '', newUrl);
+        console.log('非同期処理での検索できてるよ！');
+      })
+      .fail(function() {
+        alert ('検索に失敗しました。');
       });
     });
   }
@@ -165,5 +210,6 @@ $(function(){
   deleteClick();
   empowerment();
   dogSort();
+  searchAjax()
   paginationAjax();
 });

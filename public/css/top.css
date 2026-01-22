@@ -108,6 +108,7 @@
 .create-flex{
   display: flex;
   align-items: center;
+  justify-content: flex-start;
   margin-bottom: 58px;
 }
 
@@ -118,15 +119,44 @@
   color: #6d4321;
 }
 
+.sort-area{
+  margin-left: 24px;
+  text-align: center;
+}
+
+#dog-sort-select{
+  position: relative;
+  padding-right: 20px; 
+  white-space: nowrap;
+  box-sizing: border-box; 
+}
+
+#dog-sort-select::after {
+    content: "";
+    position: absolute;
+    right: 3px;
+    top: 55%;
+    transform: translateY(-50%); 
+    pointer-events: none;
+    z-index: 2;
+    width: 12px; 
+    height: 12px; 
+    background-image: url("../icon-etc/triangle.svg");
+    background-size: contain; /* サイズに合わせて画像を伸縮 */
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
 .admin-link{
   display: inline-block;
   white-space: nowrap;
   width: auto;
-  margin-left: 24px;
   background-color: #6d4321;
   color: #D9D9D9;
   padding: 8px 12px;
   border-radius: 5px;
+  flex-shrink: 0;
+  margin-left: auto;
 }
 
 .delete-btn-primary{
