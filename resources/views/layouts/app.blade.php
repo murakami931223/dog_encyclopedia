@@ -42,7 +42,7 @@
 
                 @unless (Route::is('login') || Route::is('register') || Route::is('password.request'))
                 <div class="search-bar">
-                    <form action="{{ route('list') }}" method="GET">
+                    <form id="search-form" action="{{ route('list') }}" method="GET">
                     @csrf
                     <div class="category-search">
                         <select class="select-area" name="category_id">

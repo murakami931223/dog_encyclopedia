@@ -20,7 +20,9 @@ class DogController extends Controller
         //ソートしたときの動作
         //_list_items.blade.phpだけ読み込ませる
         if ($request->ajax()) {
-            return view('_list_items', compact('dogs'))->render();
+            return response()->json([
+                'html' => view('_list_items', compact('dogs'))->render(),
+            ]);
         }
 
         return view('top', compact('dogs'));
@@ -61,7 +63,12 @@ class DogController extends Controller
         //ソートしたときの動作
         //_list_items.blade.phpだけ読み込ませる
         if ($request->ajax()) {
-            return view('_list_items', compact('dogs'))->render();
+            return response()->json([
+                'html' => view('_list_items', compact('dogs'))->render(),
+                //「○○の犬」を書き換えるためのデータ
+                'keyword' => $keyword,
+                'search_category_name' => $search_category_name,
+            ]);
         }
 
         return view('list', compact('dogs','keyword','search_category_name'));

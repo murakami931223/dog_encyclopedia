@@ -11,13 +11,15 @@
     </div>
     @if (!empty($search['keyword']) || !empty($search_category_name))
     <div class="search-word">
-        <p>
+        <p id="search-result-text">
             @if (!empty($keyword) && !empty($search_category_name))
             {{ $keyword }}、{{ $search_category_name }}
             @elseif (!empty($keyword))
                 {{ $keyword }}
             @elseif (!empty($search_category_name))
                 {{ $search_category_name }}
+            @elseif (empty($keyword) && empty($search_category_name))
+                全て
             @endif
             の犬
         </p>
