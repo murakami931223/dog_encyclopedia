@@ -115,7 +115,6 @@ $(function(){
   //ソート処理
   function dogSort() {
     $(document).on('change', '#dog-sort-select', function() {
-      console.log('動いてる？');
       let sortVal = $(this).val();
 
       //現在のURLを取得し、sortパラメータを更新する
@@ -196,11 +195,18 @@ $(function(){
 
       $.ajax({
         url: url,
-        method: 'get'
+        method: 'get',
+        dataType: 'json'
       })
-      .done(function(html) {
-        $('#dog-container').html(html);
+      .done(function(data) {
+        $('#dog-container').html(data.html);
         window.history.pushState({}, '', url);
+
+        //ページ上部にスクロール
+        $('html, body').animate({ scrollTop: 0 }, 300);
+      })
+      .fail(function(jqXHR, textStatus, errorThrown) {
+        console.error('ページネーション失敗:', textStatus, errorThrown);
       });
     });
   }
