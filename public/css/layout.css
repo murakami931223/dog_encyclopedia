@@ -172,6 +172,7 @@ html,body{
   height: 96px;
   display: flex;
   align-items: flex-end; 
+  text-align: center;
   justify-content: center;
 }
 

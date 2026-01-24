@@ -4,7 +4,7 @@
 <div class="mypage-wrapper">
     <div class="mypage-content">
         <div class="user-info">
-            <p class="user-info-heading">マイルーム</p>
+            <p class="user-info-heading">マイページ</p>
             <div class="user-info-table">
                 <table>
                     <tbody>
@@ -36,26 +36,28 @@
             <div id="favorite-items-container">
                 @forelse ($favorites as $favorite)
                     <div class="favorite-dog-item">
-                        <a class="favorite-dog-article" href="{{ route('article', ['id' => $favorite->dog_id]) }}">
-                            <img src="{{ asset($favorite->dog->dog_img) }}">
-                        </a>
-                        <div class="favorite-dog-info">
-                            <p class="favorite-dog-name">{{ $favorite->dog->dog_name }}</p>
-                            <table class="favorite-dog-feature-tb">
-                                <tbody>
-                                    <tr>
-                                        <th>原産国</th>
-                                        <td>{{ $favorite->dog->origin->country_name }}</td>
-                                    </tr>
-                                    <tr>
-                                        <th>サイズ</th>
-                                        <td>{{ $favorite->dog->size->type }}</td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                        <div class="favorite-dog-link">
+                            <a class="favorite-dog-article" href="{{ route('article', ['id' => $favorite->dog_id]) }}">
+                                <img src="{{ asset($favorite->dog->dog_img) }}">
+                            </a>
+                            <div class="favorite-dog-info">
+                                <p class="favorite-dog-name">{{ $favorite->dog->dog_name }}</p>
+                                <table class="favorite-dog-feature-tb">
+                                    <tbody>
+                                        <tr>
+                                            <th>原産国</th>
+                                            <td>{{ $favorite->dog->origin->country_name }}</td>
+                                        </tr>
+                                        <tr>
+                                            <th>サイズ</th>
+                                            <td>{{ $favorite->dog->size->type }}</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                         @auth
-                        <div class="article-favorite-box">
+                        <div class="article-favorite-box responsive-favorite-box">
                             @if (Auth::user() -> is_favorite($favorite->dog_id))
                                 <span class="favorite-judge">
                                     <i class="fas fa-heart favorite-toggle" data-dog_id="{{ $favorite->dog_id }}"></i>

@@ -78,7 +78,7 @@
                     <div style="color: red;">{{ $message }}</div>
                 @enderror
                 <label for="description" class="create-label">説明文</label>
-                <div class="description-area">
+                <div class="admin-description-area">
                     <textarea id="description" class="create-input" name="description">{{ old('description', $dog->description) }}</textarea>
                 </div>
             </div>

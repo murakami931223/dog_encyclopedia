@@ -2,6 +2,13 @@
 
 @section('content')
 <div class="article-wrapper">
+    <div id="flash-message-container">
+        @if (session('success'))
+        <div id="flash-message" class="alert-success">
+            {{ session('success') }}
+        </div>
+        @endif
+    </div>
     <div class="content-area">
         <div class="dog-name-title">
             <p>{{ $dog->dog_name }}</p>

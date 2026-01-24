@@ -9,6 +9,9 @@
 
     <title>{{ config('app.name', 'Laravel') }}</title>
 
+    <!-- favicon -->
+    <link rel="icon" href="{{ asset('icons8-犬-pastel-color-32.png') }}">
+
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
@@ -24,9 +27,9 @@
     <link rel="stylesheet" href="{{ asset('css/register.css') }}">
     <link rel="stylesheet" href="{{ asset('css/sendEmail.css') }}">
     <link rel="stylesheet" href="{{ asset('css/favorite.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
     <link rel="stylesheet" href="{{ asset('css/mypage.css') }}">
     <link rel="stylesheet" href="{{ asset('css/admin/create.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
 
 </head>
 <body class="route-{{ str_replace('.','-', Route::currentRouteName()) }}">
@@ -113,7 +116,7 @@
 
         <footer class="main-footer">
             <div class="footer-p">
-                <p>©dog_encyclopedia Inc</p>
+                <p><a target="_blank" href="https://icons8.com/icon/121356/dog">犬</a> アイコン by <a target="_blank" href="https://icons8.com">Icons8</a><br>©dog_encyclopedia Inc</p>
             </div>
         </footer>
     </div>

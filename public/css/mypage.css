@@ -68,6 +68,12 @@
   gap: 40px;
 }
 
+.favorite-dog-link{
+  display: flex;
+  gap: 40px;
+  flex-grow: 1;
+}
+
 .favorite-dog-article{
   flex-shrink: 0;
   width: 240px;

@@ -53,7 +53,7 @@ class DogController extends Controller
             Dog::editDog($request,$id);
             DB::commit();
 
-            return redirect()->route('admin.create')->with('success', '更新しました');
+            return redirect()->route('article', ['id' => $id])->with('success', '更新しました');
         } catch (\Exception $e) {
             DB::rollback();
             return back()->withInput();
