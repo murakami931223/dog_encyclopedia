@@ -135,7 +135,7 @@
   .title-area {
     background-size: 100%;
     background-blend-mode: multiply;
-    height: 50vh;
+    height: 30vh;
   }
 
   .main-title{
@@ -200,7 +200,7 @@
 
   .dog-list{
     gap: 5%;
-    grid-template-columns: repeat(auto-fit, minmax(120px,1fr));
+    grid-template-columns: repeat(2, minmax(120px,1fr));
     row-gap: 34px;
   }
 

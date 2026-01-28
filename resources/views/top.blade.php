@@ -88,6 +88,12 @@
             <div class=create-flex>
                 <p class="list-heading">一覧</p>
 
+                @if(auth()->user()?->is_admin)
+                    <a class="create-link admin-link" href="{{ route('admin.create') }}">記事を追加する</a>
+                @endif
+            </div>
+
+            @if ($dogs->isNotEmpty())
                 <div class="sort-area">
                     <select id="dog-sort-select">
                         <option value="default">並び替え</option>
@@ -96,13 +102,14 @@
                         <option value="viewCounts-desc">閲覧数が多い順</option>
                     </select>
                 </div>
-                    @if(auth()->user()?->is_admin)
-                        <a class="create-link admin-link" href="{{ route('admin.create') }}">記事を追加する</a>
-                    @endif
-            </div>
-            <div id="dog-container">
-                @include('_list_items', ['dogs' => $dogs])
-            </div>
+                <div id="dog-container">
+                    @include('_list_items', ['dogs' => $dogs])
+                </div>
+            @else
+                <div class="no-dogs">
+                    <p class="no-dogs-text">記事はありません。</p>
+                </div>
+            @endif
             <div class="btn-area">
                 <p id="more-btn">もっと見る...</p>
                 <p id="close-btn">折りたたむ</p>

@@ -1,3 +1,4 @@
+
 <div class="dog-list">
     @foreach ($dogs as $dog)
     <div class="flex-column dog-card" data-name="{{ $dog->dog_name }}"

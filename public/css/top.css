@@ -109,7 +109,7 @@
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin-bottom: 58px;
+  margin-bottom: 24px;
 }
 
 .list-heading{
@@ -120,16 +120,17 @@
 }
 
 .sort-area{
-  text-align: center;
+  text-align: left;
   position: relative;
-  padding-left: 24px;
+  margin-bottom: 60px;
+  display: inline-block;
 }
 
 #dog-sort-select{
   overflow: hidden;
   white-space: nowrap;
   padding-right: 20px;
-  width: 100%; 
+  width: auto; 
   box-sizing: border-box; 
 }
 
