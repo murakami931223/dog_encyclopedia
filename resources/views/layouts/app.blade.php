@@ -18,18 +18,19 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css" integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <!-- Style --> 
+    @php $v = '20260126'; @endphp
     <link rel="stylesheet" href="https://unpkg.com/destyle.css@3.0.2/destyle.min.css">
-    <link rel="stylesheet" href="{{ asset('css/layout.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/top.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/article.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/list.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/login.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/register.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/sendEmail.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/favorite.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/mypage.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/admin/create.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/layout.css') }}?v={{ $v }}">
+    <link rel="stylesheet" href="{{ asset('css/top.css') }}?v={{ $v }}">
+    <link rel="stylesheet" href="{{ asset('css/article.css') }}?v={{ $v }}">
+    <link rel="stylesheet" href="{{ asset('css/list.css') }}?v={{ $v }}">
+    <link rel="stylesheet" href="{{ asset('css/login.css') }}?v={{ $v }}">
+    <link rel="stylesheet" href="{{ asset('css/register.css') }}?v={{ $v }}">
+    <link rel="stylesheet" href="{{ asset('css/sendEmail.css') }}?v={{ $v }}">
+    <link rel="stylesheet" href="{{ asset('css/favorite.css') }}?v={{ $v }}">
+    <link rel="stylesheet" href="{{ asset('css/mypage.css') }}?v={{ $v }}">
+    <link rel="stylesheet" href="{{ asset('css/admin/create.css') }}?v={{ $v }}">
+    <link rel="stylesheet" href="{{ asset('css/responsive.css') }}?v={{ $v }}">
 
 </head>
 <body class="route-{{ str_replace('.','-', Route::currentRouteName()) }}">
