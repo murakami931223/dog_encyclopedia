@@ -38,7 +38,7 @@
                     <div class="favorite-dog-item">
                         <div class="favorite-dog-link">
                             <a class="favorite-dog-article" href="{{ route('article', ['id' => $favorite->dog_id]) }}">
-                                <img src="{{ asset($favorite->dog->dog_img) }}">
+                                <img src="{{ $favorite->dog->getDogImageUrl() }}" alt="{{ $favorite->dog_name }}の画像">
                             </a>
                             <div class="favorite-dog-info">
                                 <p class="favorite-dog-name">{{ $favorite->dog->dog_name }}</p>

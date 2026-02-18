@@ -27,7 +27,7 @@
         </div>
         <div class="flex-content">
             <div class="img-area">
-                <img src = "{{ asset($dog->dog_img) }}">
+                <img src="{{ $dog->getDogImageUrl() }}" alt="{{ $dog->dog_name }}の画像">
             </div>
             <div class="feature-area">
                 <table class="feature-tb">

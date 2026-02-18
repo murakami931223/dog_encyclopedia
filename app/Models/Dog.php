@@ -5,6 +5,8 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
+use Intervention\Image\Laravel\Facades\Image; //画像リサイズ用
+use Illuminate\Support\Facades\Storage;
 
 class Dog extends Model
 {
@@ -98,10 +100,15 @@ class Dog extends Model
             if(!empty($file)){
                 if ($file -> isValid()){
                     //ファイルが有効であれば保存処理を行う
-                    $filename = $file -> getClientOriginalName();
-                    $path = $file -> storeAs('public/img', $filename);
+                    $filename = $file -> getClientOriginalName().'_'.time();
+                    $savePath = storage_path('app/public/img/' . $filename);
 
-                    $dog -> dog_img = 'storage/img/'.$filename;
+                    //画像をリサイズして保存
+                    $image = Image::read($file);
+                    $image -> scale(width: 670);
+                    $image -> save($savePath, quality: 80);
+
+                    $dog -> dog_img = $filename;
                 }
             }
         }
@@ -125,5 +132,22 @@ class Dog extends Model
                 default:
                     return $query->orderBy('id','asc');
             }
+        }
+
+        //DBとStorage内ファイル名が完全一致するか調べる用
+        public function getDogImageUrl() {
+            //DBにファイル名が保存されているかチェック
+            if (empty($this->dog_img)) {
+                return asset('icon-etc/no_image.png');
+            }
+
+            $filePath = 'img/' . $this->dog_img;
+
+            //DBにあるファイル名がStorageのimgフォルダの中のファイル名と完全一致するか確認
+            if (Storage::disk('public')->exists($filePath)) {
+                return asset('storage/' . $filePath);
+            }
+
+            return asset('icon-etc/no_image.png');
         }
 }

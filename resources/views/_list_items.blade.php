@@ -19,7 +19,9 @@
             </div>
             @endauth
             <a class="dog-article" href="{{ route('article', ['id' => $dog -> id]) }}">
-                <img src="{{ asset($dog->dog_img) }}">
+                <div class="perfect-circle">
+                    <img src="{{ $dog->getDogImageUrl() }}" alt="{{ $dog->dog_name }}の画像">
+                </div>
                 <p class="dog-name">{{ $dog->dog_name }}</p>
             </a>
         </div>
