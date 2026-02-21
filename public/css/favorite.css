@@ -1,0 +1,27 @@
+@charset "utf-8";
+
+.article-favorite-box{
+  display: flex;
+  justify-content: end;
+  margin-top: 0.75rem;
+}
+
+.favorite-judge{
+  cursor: pointer;
+}
+
+.fa-heart{
+  width: var(--fa-width, 2.25rem);
+  font-size: 2rem;
+}
+
+.fas{
+  color: #ff4500;
+}
+
+/*トップ画面*/
+.usually-article-favorite-box{
+  position: absolute;
+  top: 13%;
+  right: 15%;
+}

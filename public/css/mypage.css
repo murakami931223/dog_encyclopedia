@@ -1,0 +1,139 @@
+@charset "utf-8";
+
+.mypage-content{
+  width: 60%;
+  margin: 0 auto;
+}
+
+.empowerment-btn{
+  cursor: pointer;
+}
+
+.user-info{
+  margin-top: 60px;
+  margin-bottom: 120px;
+}
+
+.user-info-heading{
+  font-size: 2.75rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #6d4321;
+}
+
+.user-info-table{
+  margin-top: 60px;
+  font-size: 1.5rem;
+}
+
+.user-info-table th, 
+.user-info-table td {
+    padding-bottom: 30px;
+}
+
+.empowerment-toggle{
+  text-align: center;
+  margin-top: 30px
+}
+
+.empowerment-btn{
+  display: inline;
+  border-radius: 5px;
+  padding: 8px 12px;
+  color: #fff;
+}
+
+.release-btn{
+  background-color: #ff6347;
+}
+
+.grant-btn{
+  background-color: #008080;
+}
+
+.favorite-dogs-list{
+  margin-top: 60px;
+  margin-bottom: 120px;
+}
+
+.favorite-dog-item{
+  background-color: rgba(172,127,94,0.3);
+  border-radius: 8px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  padding: 30px;
+  gap: 40px;
+}
+
+.favorite-dog-link{
+  display: flex;
+  gap: 40px;
+  flex-grow: 1;
+}
+
+.favorite-dog-article{
+  flex-shrink: 0;
+  width: 240px;
+}
+
+.favorite-dog-article img{
+  width: 100%;
+  display: block;
+}
+
+.favorite-dog-info {
+  flex-grow: 1;
+}
+
+.favorite-article-box{
+  flex-shrink: 0;
+  margin-left: auto;
+}
+
+.favorite-dog-name{
+  font-size: 1.5rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #6D4321;
+  margin-top: 0;
+  margin-bottom: 30px;
+}
+
+.favorite-dog-feature-tb{
+  width: 50%;
+  border-spacing: 0; 
+  border-collapse: collapse;
+}
+
+.favorite-dog-feature-tb tbody{
+  font-size: 1.2rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  color: #6D4321;
+}
+
+.favorite-dog-feature-tb th,
+.favorite-dog-feature-tb td {
+  padding-bottom: 5px;
+  border-bottom: 2px solid #AC7F5E;
+}
+
+.favorite-dog-feature-tb td {
+  text-align: center;
+}
+
+.favorite-dog-feature-tb tr:not(:first-child) th,
+.favorite-dog-feature-tb tr:not(:first-child) td {
+  padding-top: 30px;
+}
+
+.favorite-none{
+  text-align: center;
+  margin-top: 36px;
+  background-color: rgba(172,127,94,0.3);
+  border-radius: 8px;
+  padding: 30px 0;
+}
